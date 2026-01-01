@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  /* Colors */
+  --color-boost-red: #DC2626;
+  --color-boost-red-dark: #B91C1C;
+  --color-boost-red-light: #EF4444;
+  --color-black: #000000;
+  --color-dark-gray: #0A0A0A;
+  --color-medium-gray: #1F1F1F;
+  --color-card-bg: #141414;
+  --color-white: #FFFFFF;
+  --color-light-gray: #E5E7EB;
+  --color-gray: #9CA3AF;
+  --color-border-gray: #2D2D2D;
+
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-glow-red: 0 0 20px rgba(220, 38, 38, 0.3);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  input, textarea, select {
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-boost-red text-white font-semibold rounded-lg transition-all duration-300 hover:bg-boost-red-dark hover:shadow-[0_0_20px_rgba(220,38,38,0.4)] transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-boost-red text-boost-red font-semibold rounded-lg transition-all duration-300 hover:bg-boost-red hover:text-white;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-card-bg border border-border-gray rounded-md text-white placeholder-gray focus:outline-none focus:border-boost-red transition-colors;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply bg-card-bg border border-border-gray rounded-lg p-6 transition-all duration-300 hover:border-boost-red;
+  }
+
+  .glassmorphism {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+}
+
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
